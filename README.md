@@ -1,8 +1,17 @@
 # Day1
 
-سيرة راشد الغفلي — تصميم أبل، عربي / إنجليزي.
+سيرة راشد الغفلي.
 
-- [السيرة](index.html)
-- [الهوية الرقمية](id.html)
+## تشغيل الموقع
 
-المستودع خاص. لعرض الموقع: Settings → Pages → Source = Deploy from a branch → `main` / root.
+المستودع خاص. لفتح الصفحة:
+
+1. افتح [Settings → Pages](https://github.com/RashedSG/Day1/settings/pages)
+2. Source: **Deploy from a branch**
+3. Branch: `main` — folder: `/ (root)`
+4. Save
+
+الرابط بعد التفعيل:
+https://rashedsg.github.io/Day1/
+
+إذا لم يظهر الخيار، اجعل المستودع عاماً من Settings → General → Danger zone → Change visibility.
