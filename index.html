@@ -19,257 +19,78 @@
     --tertiary: #86868b;
     --line: #d2d2d7;
     --blue: #0071e3;
-    --blue-hover: #0077ed;
     --fill: #f5f5f7;
-    --chip: #e8e8ed;
     --shadow: 0 2px 16px rgba(0,0,0,.04), 0 20px 50px rgba(0,0,0,.06);
     --safe: env(safe-area-inset-bottom, 0px);
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg: #000000;
-      --paper: #1d1d1f;
-      --text: #f5f5f7;
-      --secondary: #a1a1a6;
-      --tertiary: #86868b;
-      --line: #424245;
-      --fill: #2c2c2e;
-      --chip: #3a3a3c;
+      --bg: #000000; --paper: #1d1d1f; --text: #f5f5f7; --secondary: #a1a1a6;
+      --tertiary: #86868b; --line: #424245; --fill: #2c2c2e;
       --shadow: 0 2px 16px rgba(0,0,0,.4), 0 24px 60px rgba(0,0,0,.45);
     }
   }
   html[data-theme="light"]{
     --bg: #f5f5f7; --paper: #ffffff; --text: #1d1d1f; --secondary: #6e6e73;
-    --tertiary: #86868b; --line: #d2d2d7; --fill: #f5f5f7; --chip: #e8e8ed;
+    --tertiary: #86868b; --line: #d2d2d7; --fill: #f5f5f7;
     --shadow: 0 2px 16px rgba(0,0,0,.04), 0 20px 50px rgba(0,0,0,.06);
   }
   html[data-theme="dark"]{
     --bg: #000000; --paper: #1d1d1f; --text: #f5f5f7; --secondary: #a1a1a6;
-    --tertiary: #86868b; --line: #424245; --fill: #2c2c2e; --chip: #3a3a3c;
+    --tertiary: #86868b; --line: #424245; --fill: #2c2c2e;
     --shadow: 0 2px 16px rgba(0,0,0,.4), 0 24px 60px rgba(0,0,0,.45);
   }
-
   *{ box-sizing: border-box; margin: 0; padding: 0; }
   html{ -webkit-text-size-adjust: 100%; }
   body{
-    min-height: 100dvh;
-    background: var(--bg);
-    color: var(--text);
+    min-height: 100dvh; background: var(--bg); color: var(--text);
     font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 1.47;
-    letter-spacing: -.022em;
+    font-weight: 400; font-size: 17px; line-height: 1.47; letter-spacing: -.022em;
   }
   button, a{ font: inherit; color: inherit; }
   button{ background: none; border: 0; cursor: pointer; }
-
-  .page{
-    width: min(820px, calc(100% - 32px));
-    margin: 0 auto;
-    padding: 28px 0 calc(64px + var(--safe));
-  }
-
-  .nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 22px;
-  }
-  .nav-mark{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--secondary);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: .06em;
-  }
-  .glyph{
-    width: 28px; height: 28px;
-    border-radius: 8px;
-    background: var(--text);
-    color: var(--bg);
-    display: grid; place-items: center;
-    font-size: 11px; font-weight: 600;
-    letter-spacing: 0;
-  }
+  .page{ width: min(820px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 calc(64px + var(--safe)); }
+  .nav{ display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+  .nav-mark{ display: flex; align-items: center; gap: 10px; color: var(--secondary); font-size: 12px; font-weight: 500; letter-spacing: .06em; }
+  .glyph{ width: 28px; height: 28px; border-radius: 8px; background: var(--text); color: var(--bg); display: grid; place-items: center; font-size: 11px; font-weight: 600; letter-spacing: 0; }
   .tools{ display: flex; gap: 8px; }
-  .tool{
-    height: 32px;
-    padding: 0 12px;
-    border-radius: 980px;
-    background: var(--paper);
-    color: var(--text);
-    font-size: 13px;
-    font-weight: 500;
-    box-shadow: 0 0 0 1px var(--line);
-    text-decoration: none;
-    display: inline-flex; align-items: center;
-  }
+  .tool{ height: 32px; padding: 0 12px; border-radius: 980px; background: var(--paper); color: var(--text); font-size: 13px; font-weight: 500; box-shadow: 0 0 0 1px var(--line); }
   .tool:hover{ background: var(--fill); }
-
-  .sheet{
-    background: var(--paper);
-    border-radius: 22px;
-    box-shadow: var(--shadow);
-    padding: 56px 60px 48px;
-  }
-
+  .sheet{ background: var(--paper); border-radius: 22px; box-shadow: var(--shadow); padding: 56px 60px 48px; }
   header.hero{ margin-bottom: 36px; }
-  .eyebrow{
-    color: var(--blue);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: .01em;
-    margin-bottom: 10px;
-  }
-  h1{
-    font-size: clamp(36px, 6vw, 52px);
-    font-weight: 600;
-    letter-spacing: -.03em;
-    line-height: 1.08;
-  }
-  .role{
-    margin-top: 8px;
-    font-size: 21px;
-    font-weight: 400;
-    color: var(--secondary);
-    letter-spacing: -.02em;
-  }
-  .meta{
-    margin-top: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 0;
-    color: var(--secondary);
-    font-size: 14px;
-  }
-  .meta a{
-    color: var(--blue);
-    text-decoration: none;
-  }
+  .eyebrow{ color: var(--blue); font-size: 13px; font-weight: 500; margin-bottom: 10px; }
+  h1{ font-size: clamp(36px, 6vw, 52px); font-weight: 600; letter-spacing: -.03em; line-height: 1.08; }
+  .role{ margin-top: 8px; font-size: 21px; font-weight: 400; color: var(--secondary); letter-spacing: -.02em; }
+  .meta{ margin-top: 16px; display: flex; flex-wrap: wrap; color: var(--secondary); font-size: 14px; }
+  .meta a{ color: var(--blue); text-decoration: none; }
   .meta a:hover{ text-decoration: underline; }
-  .dot{
-    margin: 0 10px;
-    color: var(--tertiary);
-  }
-
-  .lead{
-    font-size: 21px;
-    line-height: 1.38;
-    letter-spacing: -.021em;
-    color: var(--text);
-    max-width: 28em;
-    margin: 0 0 40px;
-    font-weight: 400;
-  }
-
+  .dot{ margin: 0 10px; color: var(--tertiary); }
+  .lead{ font-size: 21px; line-height: 1.38; letter-spacing: -.021em; max-width: 28em; margin: 0 0 40px; }
   section.block + section.block{ margin-top: 34px; }
-  .label{
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--tertiary);
-    margin-bottom: 14px;
-  }
+  .label{ font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--tertiary); margin-bottom: 14px; }
   [lang="ar"] .label{ letter-spacing: .12em; text-transform: none; }
-
-  .rule{
-    height: 1px;
-    background: var(--line);
-    border: 0;
-    margin: 0 0 18px;
-  }
-
+  .rule{ height: 1px; background: var(--line); border: 0; margin: 0 0 18px; }
   .job{ padding: 4px 0 18px; }
-  .job + .job{
-    border-top: 1px solid var(--line);
-    padding-top: 18px;
-  }
-  .job-top{
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .job h2{
-    font-size: 19px;
-    font-weight: 600;
-    letter-spacing: -.02em;
-  }
-  .when{
-    color: var(--tertiary);
-    font-size: 13px;
-    font-weight: 400;
-    white-space: nowrap;
-  }
-  .org{
-    color: var(--secondary);
-    font-size: 15px;
-    margin-top: 2px;
-  }
-  .job ul{
-    margin: 10px 0 0;
-    padding: 0 1.1em 0 0;
-  }
+  .job-top{ display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .job h2{ font-size: 19px; font-weight: 600; letter-spacing: -.02em; }
+  .when{ color: var(--tertiary); font-size: 13px; white-space: nowrap; }
+  .org{ color: var(--secondary); font-size: 15px; margin-top: 2px; }
+  .job ul{ margin: 10px 0 0; padding: 0 1.1em 0 0; }
   [dir="ltr"] .job ul{ padding: 0 0 0 1.1em; }
-  .job li{
-    color: var(--secondary);
-    font-size: 15px;
-    line-height: 1.5;
-    margin: 0 0 6px;
-  }
-
-  .edu{
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    align-items: baseline;
-    flex-wrap: wrap;
-  }
+  .job li{ color: var(--secondary); font-size: 15px; line-height: 1.5; margin: 0 0 6px; }
+  .edu{ display: flex; justify-content: space-between; gap: 16px; align-items: baseline; flex-wrap: wrap; }
   .edu h2{ font-size: 19px; font-weight: 600; letter-spacing: -.02em; }
   .edu p{ color: var(--secondary); font-size: 15px; margin-top: 3px; }
-
-  .skills{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .skill{
-    background: var(--fill);
-    color: var(--text);
-    border-radius: 980px;
-    padding: 7px 14px;
-    font-size: 13px;
-    font-weight: 500;
-  }
-
-  footer.note{
-    margin-top: 40px;
-    padding-top: 18px;
-    border-top: 1px solid var(--line);
-    color: var(--tertiary);
-    font-size: 12px;
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
+  .skills{ display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill{ background: var(--fill); color: var(--text); border-radius: 980px; padding: 7px 14px; font-size: 13px; font-weight: 500; }
+  footer.note{ margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--tertiary); font-size: 12px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   @media (max-width: 720px){
     .sheet{ padding: 32px 22px 28px; border-radius: 18px; }
-    .lead{ font-size: 19px; }
-    .role{ font-size: 18px; }
-    h1{ font-size: 34px; }
+    .lead{ font-size: 19px; } .role{ font-size: 18px; } h1{ font-size: 34px; }
   }
-
   @media print{
     :root, html[data-theme="dark"], html[data-theme="light"]{
-      --bg: #ffffff; --paper: #ffffff; --text: #1d1d1f;
-      --secondary: #6e6e73; --tertiary: #86868b; --line: #d2d2d7; --fill: #f5f5f7;
+      --bg: #ffffff; --paper: #ffffff; --text: #1d1d1f; --secondary: #6e6e73; --tertiary: #86868b; --line: #d2d2d7; --fill: #f5f5f7;
     }
     body{ background: #fff; }
     .nav, footer.note .hide-print{ display: none !important; }
@@ -288,13 +109,11 @@
         <span data-i="nav">سيرة ذاتية</span>
       </div>
       <div class="tools">
-        <a class="tool" href="id.html" data-i="idLink">الهوية</a>
         <button class="tool" id="langBtn" type="button">EN</button>
         <button class="tool" id="themeBtn" type="button" data-i="theme">مظهر</button>
         <button class="tool" id="printBtn" type="button" data-i="print">طباعة</button>
       </div>
     </div>
-
     <article class="sheet">
       <header class="hero">
         <p class="eyebrow" data-i="avail">متاح للتعاون</p>
@@ -306,13 +125,10 @@
           <a id="mailLink" href="mailto:rashid@example.com">rashid@example.com</a>
         </p>
       </header>
-
       <p class="lead" data-i="lead"></p>
-
       <section class="block">
         <p class="label" data-i="workLabel">أعمال مختارة</p>
         <hr class="rule">
-
         <article class="job">
           <div class="job-top">
             <div>
@@ -327,23 +143,7 @@
             <li data-i="j1c"></li>
           </ul>
         </article>
-
-        <article class="job">
-          <div class="job-top">
-            <div>
-              <h2 data-i="j2t"></h2>
-              <p class="org" data-i="j2o"></p>
-            </div>
-            <span class="when" data-i="j2d"></span>
-          </div>
-          <ul>
-            <li data-i="j2a"></li>
-            <li data-i="j2b"></li>
-            <li data-i="j2c"></li>
-          </ul>
-        </article>
       </section>
-
       <section class="block">
         <p class="label" data-i="eduLabel">التخصص</p>
         <hr class="rule">
@@ -355,94 +155,52 @@
           <span class="when" data-i="eduWhen"></span>
         </div>
       </section>
-
       <section class="block">
         <p class="label" data-i="skillLabel">القدرات</p>
         <hr class="rule">
         <div class="skills" id="skills"></div>
       </section>
-
       <footer class="note">
         <span data-i="foot"></span>
         <span class="hide-print" data-i="editHint"></span>
       </footer>
     </article>
   </div>
-
 <script>
-  const PROFILE = {
-    email: "rashid@example.com"
-  };
-
+  const PROFILE = { email: "rashid@example.com" };
   const T = {
     ar: {
-      nav: "سيرة ذاتية",
-      theme: "مظهر",
-      print: "طباعة",
-      idLink: "الهوية",
-      avail: "متاح للتعاون",
-      name: "راشد الغفلي",
-      role: "إدارة نظم المعلومات",
-      place: "أبوظبي، الإمارات",
+      nav: "سيرة ذاتية", theme: "مظهر", print: "طباعة", avail: "متاح للتعاون",
+      name: "راشد الغفلي", role: "إدارة نظم المعلومات", place: "أبوظبي، الإمارات",
       lead: "أربط احتياجات الأعمال بالأنظمة التي تخدمها، من تحليل البيانات إلى تبسيط العمليات اليومية. النظام الجيد ينجز عمله دون أن يشعر به المستخدم.",
       workLabel: "أعمال مختارة",
-      j1t: "مُنشئ المنتج",
-      j1o: "شوط — خطة أداء وتحمل داخل الإمارات",
-      j1d: "٢٠٢٦",
-      j1a: "صممت منتجاً ثنائي اللغة يضع الأمان كبوابة، والخطة في خدمة الرقم لا العكس.",
-      j1b: "حوّلت احتياج الرياضي في الحر والصيام إلى شاشات واضحة: تقييم، خطة أسبوعية، سجل نشاط، ومسارات محلية.",
-      j1c: "أبقيت النظام خفيفاً: صفحة ثابتة بلا خادم، وحالة تُحفظ في الجهاز.",
-      j2t: "تحليل النظم والعمليات",
-      j2o: "ممارسة مستقلة — أبوظبي",
-      j2d: "مستمر",
-      j2a: "أترجم طلب القسم أو الإدارة إلى تدفق يعمل: من يدخل البيانات، من يقرر، وما الذي يُحذف لأنه ضوضاء.",
-      j2b: "أعتمد على نماذج أولية سريعة قبل التوصية بنظام جديد، حتى يظهر الاحتكاك مبكراً.",
-      j2c: "أهتم بالواجهة الهادئة: أقل حقول، أوضح حالات، ونتيجة يفهمها غير المختص.",
-      eduLabel: "التخصص",
-      eduTitle: "إدارة نظم المعلومات",
-      eduBody: "تحليل الاحتياج، تصميم التدفق، وقراءة البيانات بما يكفي لقرار يومي.",
-      eduWhen: "مسار قائم",
+      j1t: "تحليل النظم والعمليات", j1o: "ممارسة مستقلة — أبوظبي", j1d: "مستمر",
+      j1a: "أترجم طلب القسم أو الإدارة إلى تدفق يعمل: من يدخل البيانات، من يقرر، وما الذي يُحذف لأنه ضوضاء.",
+      j1b: "أعتمد على نماذج أولية سريعة قبل التوصية بنظام جديد، حتى يظهر الاحتكاك مبكراً.",
+      j1c: "أهتم بالواجهة الهادئة: أقل حقول، أوضح حالات، ونتيجة يفهمها غير المختص.",
+      eduLabel: "التخصص", eduTitle: "إدارة نظم المعلومات",
+      eduBody: "تحليل الاحتياج، تصميم التدفق، وقراءة البيانات بما يكفي لقرار يومي.", eduWhen: "مسار قائم",
       skillLabel: "القدرات",
       skills: ["تحليل النظم", "تبسيط العمليات", "بيانات للقرار", "نماذج أولية", "واجهات ثنائية اللغة", "RTL أولاً", "تجربة هادئة"],
-      foot: "أبوظبي · يُحد’ث عند تغيّر العمل",
-      editHint: "حدّث البريد والمسميات قبل الإرسال."
+      foot: "أبوظبي · يُحد’ث عند تغيّر العمل", editHint: "حدّث البريد والمسميات قبل الإرسال."
     },
     en: {
-      nav: "Résumé",
-      theme: "Look",
-      print: "Print",
-      idLink: "ID",
-      avail: "Open to collaborate",
-      name: "Rashed Alghfeli",
-      role: "Information Systems",
-      place: "Abu Dhabi, UAE",
+      nav: "Résumé", theme: "Look", print: "Print", avail: "Open to collaborate",
+      name: "Rashed Alghfeli", role: "Information Systems", place: "Abu Dhabi, UAE",
       lead: "I connect business needs to the systems that serve them — from data analysis to quieter daily operations. A good system does its work without the user feeling it.",
       workLabel: "Selected work",
-      j1t: "Product author",
-      j1o: "Shawṭ — endurance planning for the UAE",
-      j1d: "2026",
-      j1a: "Designed a bilingual product where safety is the gate, and the plan serves the result.",
-      j1b: "Turned heat, fasting, and local events into a small set of screens: screening, weekly plan, activity log, Gulf routes.",
-      j1c: "Kept the system light: a static app with state on the device, no server required.",
-      j2t: "Systems and process analysis",
-      j2o: "Independent practice — Abu Dhabi",
-      j2d: "Ongoing",
-      j2a: "I translate a department request into a flow that works: who enters data, who decides, and what can be removed because it is noise.",
-      j2b: "I prototype before recommending a new system, so friction shows up early.",
-      j2c: "I prefer a quiet interface: fewer fields, clearer states, an outcome a non-specialist can read.",
-      eduLabel: "Focus",
-      eduTitle: "Information Systems Management",
-      eduBody: "Need analysis, flow design, and just enough data for a daily decision.",
-      eduWhen: "Active path",
+      j1t: "Systems and process analysis", j1o: "Independent practice — Abu Dhabi", j1d: "Ongoing",
+      j1a: "I translate a department request into a flow that works: who enters data, who decides, and what can be removed because it is noise.",
+      j1b: "I prototype before recommending a new system, so friction shows up early.",
+      j1c: "I prefer a quiet interface: fewer fields, clearer states, an outcome a non-specialist can read.",
+      eduLabel: "Focus", eduTitle: "Information Systems Management",
+      eduBody: "Need analysis, flow design, and just enough data for a daily decision.", eduWhen: "Active path",
       skillLabel: "Capabilities",
       skills: ["Systems analysis", "Process simplification", "Data for decisions", "Rapid prototypes", "Bilingual UI", "RTL-first", "Quiet UX"],
-      foot: "Abu Dhabi · Updated when the work changes",
-      editHint: "Replace the email and titles before you send this."
+      foot: "Abu Dhabi · Updated when the work changes", editHint: "Replace the email and titles before you send this."
     }
   };
-
   let lang = "ar";
-
   function apply(){
     const d = T[lang];
     document.documentElement.lang = lang;
@@ -455,29 +213,18 @@
     });
     const box = document.getElementById("skills");
     box.innerHTML = "";
-    d.skills.forEach(s => {
-      const span = document.createElement("span");
-      span.className = "skill";
-      span.textContent = s;
-      box.appendChild(span);
-    });
+    d.skills.forEach(s => { const span = document.createElement("span"); span.className = "skill"; span.textContent = s; box.appendChild(span); });
     document.getElementById("mailLink").href = "mailto:" + PROFILE.email;
     document.getElementById("mailLink").textContent = PROFILE.email;
   }
-
-  document.getElementById("langBtn").addEventListener("click", () => {
-    lang = lang === "ar" ? "en" : "ar";
-    apply();
-  });
+  document.getElementById("langBtn").addEventListener("click", () => { lang = lang === "ar" ? "en" : "ar"; apply(); });
   document.getElementById("printBtn").addEventListener("click", () => window.print());
   document.getElementById("themeBtn").addEventListener("click", () => {
     const root = document.documentElement;
     const now = root.getAttribute("data-theme");
     const next = now === "dark" ? "light" : now === "light" ? "" : (matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "dark");
-    if (next) root.setAttribute("data-theme", next);
-    else root.removeAttribute("data-theme");
+    if (next) root.setAttribute("data-theme", next); else root.removeAttribute("data-theme");
   });
-
   apply();
 </script>
 </body>
